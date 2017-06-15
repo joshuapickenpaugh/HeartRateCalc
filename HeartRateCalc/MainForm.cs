@@ -20,6 +20,9 @@ namespace HeartRateCalc
         private void btnCalc_Click(object sender, EventArgs e)
         {
 
+
+
+            HeartRates hr = new HeartRates();
         }
     }
 }

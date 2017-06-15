@@ -34,7 +34,15 @@ namespace HeartRateCalc
         public int Age
         {
             get { return _Age; }
-            set { _Age = value; }
+            set
+            {
+                int CurrentYear;
+
+                DateTime dt = new DateTime();
+                CurrentYear = dt.Year;
+
+                Age = CurrentYear - YearOfBirth;
+            }
         }
 
         //Local private Vars:  
@@ -47,14 +55,6 @@ namespace HeartRateCalc
             FName = strFName;
             LName = strLName;
             YearOfBirth = intYearOfBirth;
-        }
-
-        public void GetAge()
-        {
-            int CurrentYear;
-
-            DateTime dt = new DateTime();
-            CurrentYear = dt.Year;
         }
 
         public void TargetHeartRate()
