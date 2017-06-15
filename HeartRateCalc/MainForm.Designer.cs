@@ -47,6 +47,7 @@
             this.txtFName.Size = new System.Drawing.Size(100, 20);
             this.txtFName.TabIndex = 0;
             this.txtFName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFName.TextChanged += new System.EventHandler(this.txtFName_TextChanged);
             // 
             // txtLName
             // 
@@ -55,6 +56,7 @@
             this.txtLName.Size = new System.Drawing.Size(100, 20);
             this.txtLName.TabIndex = 1;
             this.txtLName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtLName.TextChanged += new System.EventHandler(this.txtLName_TextChanged);
             // 
             // txtAge
             // 
@@ -63,6 +65,7 @@
             this.txtAge.Size = new System.Drawing.Size(96, 20);
             this.txtAge.TabIndex = 2;
             this.txtAge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
             // 
             // btnCalc
             // 

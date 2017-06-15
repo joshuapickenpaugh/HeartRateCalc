@@ -65,5 +65,29 @@ namespace HeartRateCalc
             txtAge.Clear();
             lblDisplayOutput.Text = "";
         }
+
+        private void txtFName_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtFName.Text, "^[a-zA-Z]"))
+            { 
+                txtFName.Clear(); 
+            }
+        }
+
+        private void txtLName_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtLName.Text, "^[a-zA-Z]"))
+            {
+                txtLName.Clear();
+            }
+        }
+
+        private void txtAge_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtAge.Text, "^[0-9]"))
+            {
+                txtAge.Clear();
+            }
+        }
     }
 }
