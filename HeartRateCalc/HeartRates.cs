@@ -8,6 +8,11 @@ namespace HeartRateCalc
 {
     class HeartRates
     {
+        //Local private Vars:  
+        private double _MaxHeartRate;
+        private double _HighTargetHeartRate;
+        private double _LowTargetHeartRate;
+
         //Vars with Getters/Setters:
         private string _FName;
         public string FName
@@ -31,23 +36,19 @@ namespace HeartRateCalc
         }
 
         private int _Age;
+
         public int Age
         {
             get { return _Age; }
-            set
-            {
-                int CurrentYear;
-
-                DateTime dt = new DateTime();
-                CurrentYear = dt.Year;
-
-                Age = CurrentYear - YearOfBirth;
-            }
+            set { _Age = value; }
         }
 
-        //Local private Vars:  
-        private double _MaxHeartRate = 0;
-        private double _TargetHeartRate = 0;
+        private string _DisplayResults;
+        public string DisplayResults
+        {
+            get { return _DisplayResults; }
+            set { _DisplayResults = value; }
+        }
 
         //Class Constructor:
         public HeartRates(string strFName, string strLName, int intYearOfBirth  )
@@ -55,16 +56,42 @@ namespace HeartRateCalc
             FName = strFName;
             LName = strLName;
             YearOfBirth = intYearOfBirth;
+
+            GetAge();
+            MaxHeartRate();
+            TargetHeartRates();
         }
 
-        public void TargetHeartRate()
+        public void GetAge()
         {
-             
+            int CurrentYear;
+
+            DateTime dt = new DateTime();
+            //CurrentYear = dt.Year;
+            CurrentYear = DateTime.Now.Year;
+
+            Age = CurrentYear - YearOfBirth;
         }
 
         public void MaxHeartRate()
         {
-             
+            _MaxHeartRate = 220 - Age;
+        }
+
+        public void TargetHeartRates()
+        {
+            _HighTargetHeartRate = _MaxHeartRate * .85;
+            _LowTargetHeartRate = _MaxHeartRate * .5;
+        }
+
+        public string GetDisplayResults()
+        {
+            DisplayResults = _FName + " " + _LName + ", age " + _Age + "." + "Maximum heart " +
+                "rate is " + _MaxHeartRate + ", with a high target heart rate of " +
+                _HighTargetHeartRate + " and low target heart rate of " + _LowTargetHeartRate
+                + ".";
+
+            return DisplayResults;
         }
     }
 }
